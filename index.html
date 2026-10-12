@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poker Hold'em — Texas Hold'em Poker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="game-table">
+        <!-- Header con título y pot -->
+        <header class="game-header">
+            <h1>🃏 Poker Hold'em</h1>
+            <div class="pot-section">
+                <span class="pot-label">Bote Total:</span>
+                <span id="pot-amount" class="pot-amount">0</span>
+                <span class="chips-icon">🪙</span>
+            </div>
+        </header>
+
+        <!-- Área del oponente (CPU) -->
+        <div class="player-area cpu-area" id="cpu-area">
+            <div class="player-info">
+                <div class="player-avatar">🤖</div>
+                <div class="player-details">
+                    <span class="player-name">CPU</span>
+                    <span class="player-chips">🪙 <span id="cpu-chips">1000</span></span>
+                </div>
+            </div>
+            <div class="player-action" id="cpu-action">-</div>
+            <div class="cards-container" id="cpu-cards">
+                <div class="card back">🂠</div>
+                <div class="card back">🂠</div>
+            </div>
+            <div class="bet-area">
+                <span class="bet-label">Apuesta:</span>
+                <span id="cpu-bet" class="bet-amount">0</span>
+            </div>
+        </div>
+
+        <!-- Cartas comunitarias -->
+        <div class="community-cards-section">
+            <div class="community-cards" id="community-cards">
+                <div class="card placeholder">🂠</div>
+                <div class="card placeholder">🂠</div>
+                <div class="card placeholder">🂠</div>
+                <div class="card placeholder">🂠</div>
+                <div class="card placeholder">🂠</div>
+            </div>
+            <div class="phase-indicator" id="phase-indicator">Fase: Pre-Flop</div>
+        </div>
+
+        <!-- Área del jugador -->
+        <div class="player-area player-area-human" id="player-area">
+            <div class="cards-container" id="player-cards">
+                <div class="card back">🂠</div>
+                <div class="card back">🂠</div>
+            </div>
+            <div class="bet-area">
+                <span class="bet-label">Tu Apuesta:</span>
+                <span id="player-bet" class="bet-amount">0</span>
+            </div>
+            <div class="player-action" id="player-action">-</div>
+            <div class="player-info">
+                <div class="player-avatar">👤</div>
+                <div class="player-details">
+                    <span class="player-name">Tú</span>
+                    <span class="player-chips">🪙 <span id="player-chips">1000</span></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Registro de acciones -->
+        <div class="action-log" id="action-log">
+            <h3>📜 Registro de Acciones</h3>
+            <div id="log-entries" class="log-entries"></div>
+        </div>
+
+        <!-- Hand Rank Display -->
+        <div class="hand-evaluation" id="hand-evaluation"></div>
+
+        <!-- Controles de apuesta -->
+        <div class="betting-controls" id="betting-controls">
+            <div class="slider-container">
+                <input type="range" id="bet-slider" min="0" max="1000" value="0" class="bet-slider">
+                <div class="slider-labels">
+                    <span>0</span>
+                    <span id="slider-value">0</span>
+                    <span>1000</span>
+                </div>
+            </div>
+            <div class="action-buttons">
+                <button id="btn-check" class="action-btn check" disabled>Check</button>
+                <button id="btn-call" class="action-btn call" disabled>Llamar</button>
+                <button id="btn-raise" class="action-btn raise" disabled>Aumentar</button>
+                <button id="btn-allin" class="action-btn allin" disabled>All-In</button>
+                <button id="btn-fold" class="action-btn fold" disabled>Retirarse</button>
+            </div>
+        </div>
+
+        <!-- Controles de juego -->
+        <div class="game-controls">
+            <button id="btn-new-hand" class="control-btn primary">Nueva Mano</button>
+            <button id="btn-reset-game" class="control-btn secondary">Reiniciar Juego</button>
+        </div>
+
+        <!-- Mensajes del juego -->
+        <div id="game-message" class="game-message"></div>
+    </div>
+
+    <script src="js/poker-audio.js"></script>
+    <script src="js/poker.js"></script>
+    <script src="js/player.js"></script>
+    <script src="js/ai.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

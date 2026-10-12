@@ -1,0 +1,558 @@
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #1a1a2e;
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.game-table {
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: linear-gradient(135deg, #1e3c1e 0%, #2d5a2d 50%, #1e3c1e 100%);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border: 3px solid #b8860b;
+}
+
+/* Header */
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(184, 134, 11, 0.3);
+}
+
+.game-header h1 {
+    font-size: 2rem;
+    color: #ffd700;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    letter-spacing: 2px;
+}
+
+.pot-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.2rem;
+}
+
+.pot-label {
+    color: #ffd700;
+    font-weight: bold;
+}
+
+.pot-amount {
+    color: #ffd700;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.chips-icon {
+    font-size: 1.5rem;
+}
+
+/* Área de jugadores */
+.player-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 20px;
+    border-radius: 15px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 2px solid #b8860b;
+    min-height: 180px;
+    justify-content: center;
+}
+
+.cpu-area {
+    background: linear-gradient(135deg, rgba(139, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
+    border-color: #8b0000;
+}
+
+.player-area-human {
+    background: linear-gradient(135deg, rgba(0, 100, 0, 0.3), rgba(0, 0, 0, 0.3));
+    border-color: #006400;
+}
+
+.player-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.player-avatar {
+    font-size: 3rem;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    border: 2px solid #b8860b;
+}
+
+.player-details {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.player-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ffd700;
+}
+
+.player-chips {
+    font-size: 1rem;
+    color: #90ee90;
+}
+
+.cards-container {
+    display: flex;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.card {
+    width: 70px;
+    height: 100px;
+    background: #ffffff;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    border: 2px solid #333;
+    transition: transform 0.2s;
+    position: relative;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+}
+
+.card.red {
+    color: #d32f2f;
+    border-color: #d32f2f;
+}
+
+.card.black {
+    color: #212121;
+    border-color: #212121;
+}
+
+.card.back {
+    background: linear-gradient(135deg, #8b0000, #cc0000);
+    color: #ffd700;
+    border-color: #8b0000;
+    font-size: 2.5rem;
+}
+
+.card.placeholder {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px dashed #b8860b;
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 1.5rem;
+}
+
+.bet-area {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+    color: #ffd700;
+}
+
+.bet-label {
+    font-weight: bold;
+    color: #b8860b;
+}
+
+.bet-amount {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.player-action {
+    font-size: 1rem;
+    color: #87ceeb;
+    font-style: italic;
+    min-height: 20px;
+    text-align: center;
+}
+
+/* Cartas comunitarias */
+.community-cards-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    border: 2px solid #b8860b;
+}
+
+.community-cards {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.phase-indicator {
+    font-size: 1.2rem;
+    color: #ffd700;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+/* Controles de apuesta */
+.betting-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    border: 2px solid #b8860b;
+}
+
+.slider-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.bet-slider {
+    width: 100%;
+    height: 8px;
+    border-radius: 5px;
+    background: #333;
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+}
+
+.bet-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #ffd700;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.bet-slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #ffd700;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.slider-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: #b8860b;
+}
+
+.slider-labels span:nth-child(2) {
+    color: #ffd700;
+    font-weight: bold;
+}
+
+/* Botones de acción */
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.action-btn {
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    min-width: 100px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+.action-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0,0,0,0.4);
+}
+
+.action-btn:active:not(:disabled) {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.action-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.action-btn.check {
+    background-color: #4caf50;
+    color: white;
+}
+
+.action-btn.call {
+    background-color: #2196f3;
+    color: white;
+}
+
+.action-btn.raise {
+    background-color: #ff9800;
+    color: white;
+}
+
+.action-btn.allin {
+    background-color: #f44336;
+    color: white;
+}
+
+.action-btn.fold {
+    background-color: #757575;
+    color: white;
+}
+
+/* Controles del juego */
+.game-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding: 15px;
+    border-top: 1px solid rgba(184, 134, 11, 0.3);
+}
+
+.control-btn {
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.control-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0,0,0,0.3);
+}
+
+.control-btn.primary {
+    background-color: #ffd700;
+    color: #1e3c1e;
+}
+
+.control-btn.secondary {
+    background-color: #b8860b;
+    color: white;
+}
+
+/* Registro de acciones */
+.action-log {
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    border: 1px solid #b8860b;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.action-log h3 {
+    color: #ffd700;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.log-entries {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.log-entry {
+    padding: 5px;
+    border-bottom: 1px solid rgba(184, 134, 11, 0.2);
+    color: #e0e0e0;
+}
+
+.log-entry.player-action {
+    color: #90ee90;
+}
+
+.log-entry.cpu-action {
+    color: #ffcccb;
+}
+
+/* Evaluación de manos */
+.hand-evaluation {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #ffd700;
+    font-weight: bold;
+    padding: 10px;
+    min-height: 40px;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+/* Mensajes del juego */
+.game-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.9);
+    color: #ffd700;
+    padding: 30px 50px;
+    border-radius: 15px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    display: none;
+    z-index: 1000;
+    border: 3px solid #b8860b;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+    to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+.game-message.show {
+    display: block;
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0.2);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #b8860b;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #ffd700;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .game-table {
+        padding: 15px;
+        gap: 10px;
+    }
+    
+    .game-header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .card {
+        width: 50px;
+        height: 75px;
+        font-size: 1.5rem;
+    }
+    
+    .card.back {
+        font-size: 1.8rem;
+    }
+    
+    .action-buttons {
+        gap: 5px;
+    }
+    
+    .action-btn {
+        padding: 8px 12px;
+        font-size: 0.8rem;
+        min-width: 70px;
+    }
+    
+    .player-avatar {
+        width: 45px;
+        height: 45px;
+        font-size: 2rem;
+    }
+    
+    .community-cards {
+        gap: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .game-header {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+    
+    .card {
+        width: 40px;
+        height: 60px;
+        font-size: 1.2rem;
+    }
+    
+    .action-btn {
+        padding: 6px 10px;
+        font-size: 0.75rem;
+        min-width: 60px;
+    }
+}
